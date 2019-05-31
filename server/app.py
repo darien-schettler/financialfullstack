@@ -78,9 +78,19 @@ def all_stocks():
     return jsonify(response_object)
 
 
-@app.route('/stocks/<stock_id>', methods=['PUT', 'DELETE'])
+@app.route('/stocks/<stock_id>', methods=['GET', 'PUT', 'DELETE'])
 def single_stock(stock_id):
+
     response_object = {'status': 'success'}
+
+    if request.method == 'GET':
+        # TODO: refactor to a lambda and filter
+        return_stock = ''
+        for stock in STOCKS:
+            if stock['id'] == stock_id:
+                return_stock = stock
+        response_object['stock'] = return_stock
+
     if request.method == 'PUT':
         put_data = request.get_json()
         remove_stock(stock_id)
@@ -90,11 +100,11 @@ def single_stock(stock_id):
             'company': put_data.get('company'),
             'price': put_data.get('price')
         })
-        response_object['message'] = 'Stock Updated!'
+        response_object['message'] = 'Stock updated!'
 
     if request.method == 'DELETE':
         remove_stock(stock_id)
-        response_object['message'] = 'Stock Removed!'
+        response_object['message'] = 'Stock removed!'
 
     return jsonify(response_object)
 
