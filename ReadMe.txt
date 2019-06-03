@@ -1,5 +1,26 @@
 Flask-Vue Web Application for Financial Watchlists And Stripe Integration
 
+####################################################################################
+
+
+To begin you must first:
+
+
+	1.  use npm/yarn to install dependencies within the Client folder.
+		a.  yarn install
+		b.  yarn run serve (launches local front-end server)
+
+	
+	2.  use the following commands to setup venv and dependencies within Server folder.
+		a.  python -m venv env
+		b.  env\bin\activate or env\scripts\activate
+		c.  python -m pip install --upgrade pip
+		d.  pip install -r requirements.txt
+		e.  flask run (launches local back-end server)
+
+
+####################################################################################
+
 Things Done:
 *	Basic CRUD application created utilizing FLASK & VUE
 *	Use BOOTSTRAPVUE to make components and front-end simple
