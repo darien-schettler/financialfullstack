@@ -26,6 +26,8 @@ Things Done:
 *	Use BOOTSTRAPVUE to make components and front-end simple
 *	Hookup Stripe to allow for checkout web-flow
 
+*	NOTE: There is a version on Gitlab working with Docker and Heroku which was created to explore pipeline deployment for a flask-vue CRUD SPA. PM for the link.
+
 Things To Do:
 *	Add client and server-side unit and integration tests.
 *	Create a shopping cart so customers can purchase more than one book at a time.
