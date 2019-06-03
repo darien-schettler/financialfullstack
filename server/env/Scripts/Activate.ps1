@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\Users\Darie\Desktop\acorn-full-stack\flask-vue-books\env"
+$env:VIRTUAL_ENV="C:\Users\Darie\Desktop\acorn-full-stack\flask-vue-stocks-local\server\env"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

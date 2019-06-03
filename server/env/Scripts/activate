@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Darie\Desktop\acorn-full-stack\flask-vue-books\env"
+VIRTUAL_ENV="C:\Users\Darie\Desktop\acorn-full-stack\flask-vue-stocks-local\server\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
