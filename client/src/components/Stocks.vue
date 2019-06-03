@@ -23,8 +23,10 @@
               <td>{{ stock.price }}</td>
               <td>
                 <div class="btn-group float-right" role="group">
-                  <button type="button" class="btn btn-warning btn-sm mx-1 px-2 rounded font-weight-bold" v-b-modal.stock-update-modal @
-                    click="editStock(stock)">Update</button>
+                  <button 
+                  type="button" 
+                  class="btn btn-warning btn-sm mx-1 px-2 rounded font-weight-bold" 
+                  v-b-modal.stock-update-modal @click="editStock(stock)">Update</button>
                   <button type="button" class="btn btn-danger btn-sm mx-1 px-2 rounded font-weight-bold" @click="onDeleteStock(stock)">
                     Delete
                   </button>

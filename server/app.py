@@ -1,8 +1,14 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import uuid
+import stripe
+import os
+
 # ----- CONFIGURATION -----
 DEBUG = True
+
+# Figure where to put this later... safekeeping currently
+ALPHA_API = "J8XGZWZWS7ZXJZ0G"
 
 # ----- CONSTANTS -----
 STOCKS = [
@@ -78,9 +84,49 @@ def all_stocks():
     return jsonify(response_object)
 
 
+@app.route('/charge', methods=['POST'])
+def create_charge():
+    # Get the information payload from the front end
+    post_data = request.get_json()
+
+    # Get the amount and convert it to cents
+    amount = round(float(post_data.get('stock')['price']) * 100)
+
+    # Set the stripe api key to be the one loaded into the local environment
+    stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+    # Create the charge object with various post parameters
+    charge = stripe.Charge.create(
+        amount=amount,
+        currency='cad',
+        card=post_data.get('token'),
+        description=post_data.get('stock')['ticker']
+    )
+
+    # Create the response object
+    response_object = {
+        'status': 'success',
+        'charge': charge
+    }
+    # Return the response object and a success code
+    return jsonify(response_object), 200
+
+
+@app.route('/charge/<charge_id>')
+def get_charge(charge_id):
+
+    stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+    # Create the response object
+    response_object = {
+        'status': 'success',
+        'charge': stripe.Charge.retrieve(charge_id)
+    }
+    return jsonify(response_object), 200
+
+
 @app.route('/stocks/<stock_id>', methods=['GET', 'PUT', 'DELETE'])
 def single_stock(stock_id):
-
     response_object = {'status': 'success'}
 
     if request.method == 'GET':
