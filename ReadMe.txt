@@ -1,11 +1,11 @@
-<strong>Flask-Vue Web Application for Financial Watchlists And Stripe Integration</strong>
+Flask-Vue Web Application for Financial Watchlists And Stripe Integration
 
-<strong>Things Done:</strong>
+Things Done:
 *	Basic CRUD application created utilizing FLASK & VUE
 *	Use BOOTSTRAPVUE to make components and front-end simple
 *	Hookup Stripe to allow for checkout web-flow
 
-<strong>Things To Do:</strong>
+Things To Do:
 *	Add client and server-side unit and integration tests.
 *	Create a shopping cart so customers can purchase more than one book at a time.
 *	Add Postgres to store the stocks/orders/etc.
